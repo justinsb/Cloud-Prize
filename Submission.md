@@ -4,21 +4,36 @@ justinsb, founder of FathomDB, USA
 
 ## Which Categories Best Fit Your Submission and Why?
 
-* Best new monkey
+* **Best new monkey**
 
+I've implemented a 14 new chaos monkeys, simulating different types of failures.  I've also made it really easy to create more chaos types just by writing a script, which is run via JClouds/SSH.
+
+Also:
 * Best usability enhancement
+
+I've fixed the problems I encountered while setting up the Simian Army, including documenting how to use the new AWS CLIs.
+
 * Best new feature
+
+I think that the idea of running sneakier chaos monkeys to simulate more devilish failures might even quality as a new feature.
+
 * Best contribution to operational tools, availability and manageability	
+
+I think that if Netflix can survive an onslaught by the 15 monkeys of chaos, then it is much more likely to remain available throughout non-simulated problems.
 
 
 ## Describe your Submission
 
-_"There are more things in heaven and earth, Horatio,
-Than are dreamt of in your philosophy"_
+> There are more things in heaven and earth, Horatio,
+> Than are dreamt of in your philosophy
+> 
+> _Shakespeare, Hamlet_
 
-_"There are known knowns; there are things we know that we know.
-There are known unknowns; that is to say, there are things that we now know we don't know.
-But there are also unknown unknowns – there are things we do not know we don't know."_
+> There are known knowns; there are things we know that we know.
+> There are known unknowns; that is to say, there are things that we now know we don't know.
+> But there are also unknown unknowns – there are things we do not know we don't know.
+>
+> _Donald Rumsfeld, Press Briefing_
 
 The chaos monkey currently just shuts down a machine; it simulates a "clean failure".  The chaos monkey was a huge leap forward by Netflix engineering, but we've seen in a few AWS outages now that large-scale AWS failures are not clean.  This is good - things fail in new ways at AWS cloud scale; we'd be upset if the same things kept going wrong.  But we need the chaos monkey to simulate more types of failures if we want to more accurately simulate AWS failures.  We've seen network connectivity issues; we've seen EBS issues; we've seen S3 go offline.  I think the only thing we can be sure of is that the next failure will be different!
 
@@ -45,7 +60,7 @@ Some of these chaos monkeys involve writing Java code (the ones that use the EC2
 
 For example, I'd like to add a strategy that null routes Eureka based services, but I'm not sure of the exact DNS names to block.  But, for Netflix, adding that is now a simple shell-script away.
 
-Finally, to help people get going with Netflix's Simian Army, I cleaned up a few gotchas that I hit.  The wiki for getting going used the old AWS command line toolset, so I added the new shiny AWS CLI commands.  There was an issue with strict parsing of boolean configuration values, so I fixed that when I hit it.  The wiki instructions had a very complicated procedure for creating the required SimpleDB domain (it involved curl, manual calculation of the signature, and didn't work reliably!) so I added code to just auto-create the SimpleDB bucket.  And finally, the out-of-the-box config tried to send email to foo@bar.com; if the user hasn't configured a real email I added code so that we detect that email address and ignore it.  These improvements have been merged in to the official Netflix repo (or are already on the wiki).
+Finally, to help people get going with Netflix's Simian Army, I cleaned up a few gotchas that I hit.  The wiki for getting going used the old AWS command line toolset, so I added the new shiny AWS CLI commands.  There was an issue with strict parsing of boolean configuration values, so I fixed that when I hit it.  The wiki instructions had a very complicated procedure for creating the required SimpleDB domain (it involved curl, openssl hashing for the signature, and supposedly didn't work reliably!) so I added code to just auto-create the SimpleDB bucket.  And finally, the out-of-the-box config tried to send email to foo@bar.com; if the user hasn't configured a real email I added code so that we detect that email address and ignore it.  These improvements have been merged in to the official Netflix repo (or are already on the wiki).
 
 All code is Apache licensed.  It has all been submitted via Pull Requests to the Netflix SimianArmy project, some of which have already been accepted and merged into the official Netflix project in use at Netflix. 
 The code passes the test suite, including CheckStyle tests, PMD tests and unit tests.  It therefore follows the existing Netflix code style guidelines.  Documentation has been added to the wiki, and existing installation documentation has been improved.
