@@ -1,3 +1,7 @@
+Submission for Netflix OSS prize by:
+
+justinsb, founder of FathomDB, USA
+
 ## Which Categories Best Fit Your Submission and Why?
 
 * Best new monkey
