@@ -1,5 +1,3 @@
-Update this page to describe and link to pull requests made against other NetflixOSS related projects.
-
 ## Feature Related Pull Requests
 
 Don't send an email to foo@bar.com
@@ -32,5 +30,5 @@ New chaos type #4: Kill processes
 New chaos type #5: Null route 10.0.0.0/8
 [SimianArmy #92] (https://github.com/Netflix/SimianArmy/pull/92)
 
-## Quality Related Pull Requests
-## Performance Related Pull Requests
+New chaos type #6 ... #14: A pride of chaos monkeys
+[SimianArmy #93] (https://github.com/Netflix/SimianArmy/pull/93)
